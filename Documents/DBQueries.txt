@@ -2,7 +2,7 @@ CREATE DATABASE ProductManagementSystem
 
 Use ProductManagementSystem 
 
-CREATE TABLE [dbo.UserMaster]
+CREATE TABLE UserMaster
 	(
 		UserId int not null identity primary key, 
 		FirstName varchar(50),
@@ -19,42 +19,42 @@ CREATE TABLE [dbo.UserMaster]
 	)
 
 
-CREATE TABLE [dbo.Product]
+CREATE TABLE Product
 	(
 		PID int not null identity primary key, 
 		PName varchar(50),
 		ImageName varchar(50), 
-		ImageCode varbinary, 
+		ImageCode varbinary(max), 
 		Price money, 
 		Discount int, 
 		Quantity int, 
 		IsStock bit
 	)
 
-CREATE TABLE [dbo.Order] 
+CREATE TABLE Orders
 	(
 		OrderId int not null identity primary key, 
-		ProductId int references [dbo.Product](PID),
+		ProductId int references Product(PID),
 		ProductQuantity int, 
-		UserId int references [dbo.UserMaster](UserId), 
+		UserId int references UserMaster(UserId), 
 		BookingOn date,
 		DeliveredOn date
 	)	
 	
-CREATE TABLE Payment 
+CREATE TABLE Payment
 	(
 		PayId int not null identity primary key, 
-		UserId int references [dbo.UserMaster](UserId), 
-		OrderId int references [dbo.Order](OrderId),  
+		UserId int references UserMaster(UserId), 
+		OrderId int references Orders(OrderId),  
 		CardNo varchar(15), 
 		BankName varchar(50), 
 		NameOnCard varchar(20), 
 		ExpiryDate date
 	)
-
-CREATE TABLE Cart 
+	
+CREATE TABLE Cart
 	(
 		CartId int not null identity primary key, 
-		UserId int references [dbo.UserMaster](UserId), 
-		ProductId int references [dbo.Product](PID)
+		UserId int references UserMaster(UserId), 
+		ProductId int references Product(PID)
 	)

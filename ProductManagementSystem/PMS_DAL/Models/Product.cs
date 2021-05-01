@@ -12,34 +12,27 @@ namespace PMS_DAL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class dbo_UserMaster
+    public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public dbo_UserMaster()
+        public Product()
         {
             this.Carts = new HashSet<Cart>();
-            this.dbo_Order = new HashSet<dbo_Order>();
-            this.Payments = new HashSet<Payment>();
+            this.Orders = new HashSet<Order>();
         }
     
-        public int UserId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string CurrentAddress { get; set; }
-        public string PermanentAddress { get; set; }
-        public string State { get; set; }
-        public string Pincode { get; set; }
-        public Nullable<bool> IsAdmin { get; set; }
+        public int PID { get; set; }
+        public string PName { get; set; }
+        public string ImageName { get; set; }
+        public byte[] ImageCode { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<int> Discount { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<bool> IsStock { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<dbo_Order> dbo_Order { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

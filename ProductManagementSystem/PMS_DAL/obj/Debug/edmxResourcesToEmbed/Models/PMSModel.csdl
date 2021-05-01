@@ -7,10 +7,10 @@
     <Property Name="CartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="ProductId" Type="Int32" />
-    <NavigationProperty Name="dbo_Product" Relationship="Self.FK__Cart__ProductId__4316F928" FromRole="Cart" ToRole="dbo_Product" />
-    <NavigationProperty Name="dbo_UserMaster" Relationship="Self.FK__Cart__UserId__4222D4EF" FromRole="Cart" ToRole="dbo_UserMaster" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Cart__ProductId__75A278F5" FromRole="Cart" ToRole="Product" />
+    <NavigationProperty Name="UserMaster" Relationship="Self.FK__Cart__UserId__74AE54BC" FromRole="Cart" ToRole="UserMaster" />
   </EntityType>
-  <EntityType Name="dbo_Order">
+  <EntityType Name="Order">
     <Key>
       <PropertyRef Name="OrderId" />
     </Key>
@@ -20,26 +20,40 @@
     <Property Name="UserId" Type="Int32" />
     <Property Name="BookingOn" Type="DateTime" Precision="0" />
     <Property Name="DeliveredOn" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="dbo_Product" Relationship="Self.FK__dbo_Order__Produ__3A81B327" FromRole="dbo_Order" ToRole="dbo_Product" />
-    <NavigationProperty Name="dbo_UserMaster" Relationship="Self.FK__dbo_Order__UserI__3B75D760" FromRole="dbo_Order" ToRole="dbo_UserMaster" />
-    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__OrderId__3F466844" FromRole="dbo_Order" ToRole="Payment" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Orders__ProductI__6D0D32F4" FromRole="Orders" ToRole="Product" />
+    <NavigationProperty Name="UserMaster" Relationship="Self.FK__Orders__UserId__6E01572D" FromRole="Orders" ToRole="UserMaster" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__OrderId__71D1E811" FromRole="Orders" ToRole="Payment" />
   </EntityType>
-  <EntityType Name="dbo_Product">
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PayId" />
+    </Key>
+    <Property Name="PayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="CardNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NameOnCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__Payment__OrderId__71D1E811" FromRole="Payment" ToRole="Orders" />
+    <NavigationProperty Name="UserMaster" Relationship="Self.FK__Payment__UserId__70DDC3D8" FromRole="Payment" ToRole="UserMaster" />
+  </EntityType>
+  <EntityType Name="Product">
     <Key>
       <PropertyRef Name="PID" />
     </Key>
     <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ImageCode" Type="Binary" MaxLength="1" FixedLength="false" />
+    <Property Name="ImageCode" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Discount" Type="Int32" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="IsStock" Type="Boolean" />
-    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__ProductId__4316F928" FromRole="dbo_Product" ToRole="Cart" />
-    <NavigationProperty Name="dbo_Order" Relationship="Self.FK__dbo_Order__Produ__3A81B327" FromRole="dbo_Product" ToRole="dbo_Order" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__ProductId__75A278F5" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__ProductI__6D0D32F4" FromRole="Product" ToRole="Orders" />
   </EntityType>
-  <EntityType Name="dbo_UserMaster">
+  <EntityType Name="UserMaster">
     <Key>
       <PropertyRef Name="UserId" />
     </Key>
@@ -55,29 +69,15 @@
     <Property Name="State" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="Pincode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="IsAdmin" Type="Boolean" />
-    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__UserId__4222D4EF" FromRole="dbo_UserMaster" ToRole="Cart" />
-    <NavigationProperty Name="dbo_Order" Relationship="Self.FK__dbo_Order__UserI__3B75D760" FromRole="dbo_UserMaster" ToRole="dbo_Order" />
-    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__UserId__3E52440B" FromRole="dbo_UserMaster" ToRole="Payment" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__UserId__74AE54BC" FromRole="UserMaster" ToRole="Cart" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__UserId__6E01572D" FromRole="UserMaster" ToRole="Orders" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__UserId__70DDC3D8" FromRole="UserMaster" ToRole="Payment" />
   </EntityType>
-  <EntityType Name="Payment">
-    <Key>
-      <PropertyRef Name="PayId" />
-    </Key>
-    <Property Name="PayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="OrderId" Type="Int32" />
-    <Property Name="CardNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="NameOnCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="dbo_Order" Relationship="Self.FK__Payment__OrderId__3F466844" FromRole="Payment" ToRole="dbo_Order" />
-    <NavigationProperty Name="dbo_UserMaster" Relationship="Self.FK__Payment__UserId__3E52440B" FromRole="Payment" ToRole="dbo_UserMaster" />
-  </EntityType>
-  <Association Name="FK__Cart__ProductId__4316F928">
-    <End Role="dbo_Product" Type="Self.dbo_Product" Multiplicity="0..1" />
+  <Association Name="FK__Cart__ProductId__75A278F5">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbo_Product">
+      <Principal Role="Product">
         <PropertyRef Name="PID" />
       </Principal>
       <Dependent Role="Cart">
@@ -85,11 +85,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Cart__UserId__4222D4EF">
-    <End Role="dbo_UserMaster" Type="Self.dbo_UserMaster" Multiplicity="0..1" />
+  <Association Name="FK__Cart__UserId__74AE54BC">
+    <End Role="UserMaster" Type="Self.UserMaster" Multiplicity="0..1" />
     <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbo_UserMaster">
+      <Principal Role="UserMaster">
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="Cart">
@@ -97,35 +97,35 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__dbo_Order__Produ__3A81B327">
-    <End Role="dbo_Product" Type="Self.dbo_Product" Multiplicity="0..1" />
-    <End Role="dbo_Order" Type="Self.dbo_Order" Multiplicity="*" />
+  <Association Name="FK__Orders__ProductI__6D0D32F4">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbo_Product">
+      <Principal Role="Product">
         <PropertyRef Name="PID" />
       </Principal>
-      <Dependent Role="dbo_Order">
+      <Dependent Role="Orders">
         <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__dbo_Order__UserI__3B75D760">
-    <End Role="dbo_UserMaster" Type="Self.dbo_UserMaster" Multiplicity="0..1" />
-    <End Role="dbo_Order" Type="Self.dbo_Order" Multiplicity="*" />
+  <Association Name="FK__Orders__UserId__6E01572D">
+    <End Role="UserMaster" Type="Self.UserMaster" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbo_UserMaster">
+      <Principal Role="UserMaster">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="dbo_Order">
+      <Dependent Role="Orders">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Payment__OrderId__3F466844">
-    <End Role="dbo_Order" Type="Self.dbo_Order" Multiplicity="0..1" />
+  <Association Name="FK__Payment__OrderId__71D1E811">
+    <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbo_Order">
+      <Principal Role="Orders">
         <PropertyRef Name="OrderId" />
       </Principal>
       <Dependent Role="Payment">
@@ -133,11 +133,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Payment__UserId__3E52440B">
-    <End Role="dbo_UserMaster" Type="Self.dbo_UserMaster" Multiplicity="0..1" />
+  <Association Name="FK__Payment__UserId__70DDC3D8">
+    <End Role="UserMaster" Type="Self.UserMaster" Multiplicity="0..1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbo_UserMaster">
+      <Principal Role="UserMaster">
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="Payment">
@@ -145,34 +145,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ProductManagementSystemEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="PMSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Carts" EntityType="Self.Cart" />
-    <EntitySet Name="dbo_Order" EntityType="Self.dbo_Order" />
-    <EntitySet Name="dbo_Product" EntityType="Self.dbo_Product" />
-    <EntitySet Name="dbo_UserMaster" EntityType="Self.dbo_UserMaster" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Payments" EntityType="Self.Payment" />
-    <AssociationSet Name="FK__Cart__ProductId__4316F928" Association="Self.FK__Cart__ProductId__4316F928">
-      <End Role="dbo_Product" EntitySet="dbo_Product" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
+    <AssociationSet Name="FK__Cart__ProductId__75A278F5" Association="Self.FK__Cart__ProductId__75A278F5">
+      <End Role="Product" EntitySet="Products" />
       <End Role="Cart" EntitySet="Carts" />
     </AssociationSet>
-    <AssociationSet Name="FK__Cart__UserId__4222D4EF" Association="Self.FK__Cart__UserId__4222D4EF">
-      <End Role="dbo_UserMaster" EntitySet="dbo_UserMaster" />
+    <AssociationSet Name="FK__Cart__UserId__74AE54BC" Association="Self.FK__Cart__UserId__74AE54BC">
+      <End Role="UserMaster" EntitySet="UserMasters" />
       <End Role="Cart" EntitySet="Carts" />
     </AssociationSet>
-    <AssociationSet Name="FK__dbo_Order__Produ__3A81B327" Association="Self.FK__dbo_Order__Produ__3A81B327">
-      <End Role="dbo_Product" EntitySet="dbo_Product" />
-      <End Role="dbo_Order" EntitySet="dbo_Order" />
+    <AssociationSet Name="FK__Orders__ProductI__6D0D32F4" Association="Self.FK__Orders__ProductI__6D0D32F4">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__dbo_Order__UserI__3B75D760" Association="Self.FK__dbo_Order__UserI__3B75D760">
-      <End Role="dbo_UserMaster" EntitySet="dbo_UserMaster" />
-      <End Role="dbo_Order" EntitySet="dbo_Order" />
+    <AssociationSet Name="FK__Orders__UserId__6E01572D" Association="Self.FK__Orders__UserId__6E01572D">
+      <End Role="UserMaster" EntitySet="UserMasters" />
+      <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Payment__OrderId__3F466844" Association="Self.FK__Payment__OrderId__3F466844">
-      <End Role="dbo_Order" EntitySet="dbo_Order" />
+    <AssociationSet Name="FK__Payment__OrderId__71D1E811" Association="Self.FK__Payment__OrderId__71D1E811">
+      <End Role="Orders" EntitySet="Orders" />
       <End Role="Payment" EntitySet="Payments" />
     </AssociationSet>
-    <AssociationSet Name="FK__Payment__UserId__3E52440B" Association="Self.FK__Payment__UserId__3E52440B">
-      <End Role="dbo_UserMaster" EntitySet="dbo_UserMaster" />
+    <AssociationSet Name="FK__Payment__UserId__70DDC3D8" Association="Self.FK__Payment__UserId__70DDC3D8">
+      <End Role="UserMaster" EntitySet="UserMasters" />
       <End Role="Payment" EntitySet="Payments" />
     </AssociationSet>
   </EntityContainer>

@@ -21,3 +21,15 @@ C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\De
 C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
 C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll.config
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.pdb
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.xml
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csprojAssemblyReference.cache
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CoreCompileInputs.cache
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb

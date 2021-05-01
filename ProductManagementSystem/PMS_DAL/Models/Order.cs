@@ -12,10 +12,10 @@ namespace PMS_DAL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class dbo_Order
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public dbo_Order()
+        public Order()
         {
             this.Payments = new HashSet<Payment>();
         }
@@ -27,8 +27,8 @@ namespace PMS_DAL.Models
         public Nullable<System.DateTime> BookingOn { get; set; }
         public Nullable<System.DateTime> DeliveredOn { get; set; }
     
-        public virtual dbo_Product dbo_Product { get; set; }
-        public virtual dbo_UserMaster dbo_UserMaster { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual UserMaster UserMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment> Payments { get; set; }
     }

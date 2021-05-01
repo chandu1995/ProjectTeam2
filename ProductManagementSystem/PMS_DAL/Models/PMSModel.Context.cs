@@ -13,10 +13,10 @@ namespace PMS_DAL.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProductManagementSystemEntities : DbContext
+    public partial class PMSEntities : DbContext
     {
-        public ProductManagementSystemEntities()
-            : base("name=ProductManagementSystemEntities")
+        public PMSEntities()
+            : base("name=PMSEntities")
         {
         }
     
@@ -26,9 +26,9 @@ namespace PMS_DAL.Models
         }
     
         public virtual DbSet<Cart> Carts { get; set; }
-        public virtual DbSet<dbo_Order> dbo_Order { get; set; }
-        public virtual DbSet<dbo_Product> dbo_Product { get; set; }
-        public virtual DbSet<dbo_UserMaster> dbo_UserMaster { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<UserMaster> UserMasters { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace PMS_DAL.Models
         public string NameOnCard { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
     
-        public virtual dbo_Order dbo_Order { get; set; }
-        public virtual dbo_UserMaster dbo_UserMaster { get; set; }
+        public virtual Order Order { get; set; }
+        public virtual UserMaster UserMaster { get; set; }
     }
 }
