@@ -126,3 +126,9 @@ E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\obj\Debug\PMS_WebAP
 E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\obj\Debug\PMS_WebAPI.Tests.csproj.CopyComplete
 E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\obj\Debug\PMS_WebAPI.Tests.dll
 E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\obj\Debug\PMS_WebAPI.Tests.pdb
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\bin\Debug\PMS_DAL.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\bin\Debug\PMS_DAL.pdb
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\bin\Debug\PMS_DAL.dll.config
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\bin\Debug\System.Web.Http.Cors.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\bin\Debug\System.Web.Cors.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI.Tests\bin\Debug\System.Web.Http.Cors.xml

@@ -350,3 +350,6 @@ E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.cspr
 E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.csproj.CopyComplete
 E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.dll
 E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.pdb
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\bin\System.Web.Cors.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\bin\System.Web.Http.Cors.dll
+E:\git\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\bin\System.Web.Http.Cors.xml
