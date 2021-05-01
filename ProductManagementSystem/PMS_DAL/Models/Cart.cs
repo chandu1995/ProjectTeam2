@@ -18,7 +18,7 @@ namespace PMS_DAL.Models
         public Nullable<int> UserId { get; set; }
         public Nullable<int> ProductId { get; set; }
     
-        public virtual dbo_Product dbo_Product { get; set; }
-        public virtual dbo_UserMaster dbo_UserMaster { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual UserMaster UserMaster { get; set; }
     }
 }
