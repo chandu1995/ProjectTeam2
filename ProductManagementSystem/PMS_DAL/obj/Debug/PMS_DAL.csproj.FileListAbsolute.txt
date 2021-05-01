@@ -10,3 +10,14 @@ C:\Project\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.d
 C:\Project\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.xml
 C:\Project\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Project\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll.config
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.pdb
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.dll
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.xml
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
+C:\Users\ADMIN\Desktop\Shoeb\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
