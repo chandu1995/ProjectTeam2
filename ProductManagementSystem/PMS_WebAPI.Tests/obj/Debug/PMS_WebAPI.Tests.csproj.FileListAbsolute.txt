@@ -1,0 +1,2 @@
+C:\Project\ProductManagementSystem\PMS_WebAPI.Tests\obj\Debug\PMS_WebAPI.Tests.csprojAssemblyReference.cache
+C:\Project\ProductManagementSystem\PMS_WebAPI.Tests\obj\Debug\PMS_WebAPI.Tests.csproj.CoreCompileInputs.cache
