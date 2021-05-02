@@ -9,12 +9,65 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
+
 namespace PMS_WebAPI.Controllers
 {
     [EnableCors("*", "*", "*")]
     public class ProductController : ApiController
     {
         PMSEntities db = new PMSEntities();
+
+
+        [HttpGet]
+        [Route("api/GetProducts")]
+        public IEnumerable<Product> GetProduct()
+        {
+            IList<Product> products = db.Products.ToList<Product>();
+            List<Product> products1 = new List<Product>();
+            foreach (var p in products)
+            {
+                Product List = new Product()
+                {
+                    PID = p.PID,
+                    PName = p.PName,
+                    ImageName = p.ImageName,
+                    ImageCode = p.ImageCode,
+                    Discount = p.Discount,
+                    IsStock = p.IsStock,
+                    Quantity = p.Quantity,
+                    Price = p.Price
+                };
+
+                products1.Add(List);
+            }
+            return products1;
+        }
+
+        [HttpGet]
+        [Route("api/GetProduct/{id}")]
+        public Product GetProduct(int id)
+        {
+            Product product = (from p in db.Products
+                                        where p.PID == id
+                                        select p).FirstOrDefault();
+            Product product1 = new Product()
+            {
+                PID = product.PID,
+                PName = product.PName,
+                ImageName = product.ImageName,
+                ImageCode = product.ImageCode,
+                Discount = product.Discount,
+                IsStock = product.IsStock,
+                Quantity = product.Quantity,
+                Price = product.Price
+            };
+            //byte[] imgData = product.ImageCode;
+            //MemoryStream ms = new MemoryStream(imgData);
+            //HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
+            //response.Content = new StreamContent(ms);
+            //response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpg");
+            return product1;
+        }
 
         [HttpPost]
         [Route("api/AddProduct")]
@@ -26,8 +79,8 @@ namespace PMS_WebAPI.Controllers
             product.PName = httpRequest["PName"];
             product.Price = Convert.ToInt32(httpRequest["Price"]);
             product.Discount = Convert.ToInt32(httpRequest["Discount"]);
-            //product.Quantity = Convert.ToInt32(httpRequest["Quantity"]);
-            
+            product.Quantity = Convert.ToInt32(httpRequest["Quantity"]);
+
             if (httpRequest["IsStock"] == "true")
                 product.IsStock = true;
             else
@@ -70,5 +123,5 @@ namespace PMS_WebAPI.Controllers
 
     }
 
-}
 
+}
