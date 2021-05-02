@@ -1,6 +1,8 @@
 ﻿using PMS_DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -121,7 +123,80 @@ namespace PMS_WebAPI.Controllers
             return result;
         }
 
+        [HttpPut]
+        [Route("api/UpdateProduct/{id}")]
+        public HttpResponseMessage UpdateProduct(int id)
+        {
+            Product product = new Product();
+            HttpResponseMessage result = null;
+            var httpRequest = HttpContext.Current.Request;
+            product.PID= id;
+            product.PName = httpRequest["PName"];
+            product.Discount = Convert.ToInt32(httpRequest["Discount"]);
+            product.Price = Convert.ToInt32(httpRequest["Price"]);
+            product.Quantity = Convert.ToInt32(httpRequest["Quantity"]);
+
+            if (httpRequest["IsStock"] == "true")
+                product.IsStock = true;
+            else
+                product.IsStock = false;
+
+            if (httpRequest.Files.Count > 0)
+            {
+                //var docfiles = new List<string>();
+                foreach (string file in httpRequest.Files)
+                {
+                    var allowedExtensions = new[] {
+                  ".jpg", ".png", ".jpg", "jpeg"
+                };
+
+                    var postedFile = httpRequest.Files[file];
+
+                    var fileName = Path.GetFileName(postedFile.FileName); //getting only file name(ex-ganesh.jpg)  
+                    var ext = Path.GetExtension(postedFile.FileName); //getting the extension(ex-.jpg)  
+                    if (allowedExtensions.Contains(ext.ToLower())) //check what type of extension  
+                    {
+                        Stream stream = postedFile.InputStream;
+                        BinaryReader binaryReader = new BinaryReader(stream);
+                        Byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
+
+                        product.ImageName = fileName;
+                        product.ImageCode = bytes;
+                        
+                        db.Entry(product).State = EntityState.Modified;
+                        try
+                        {
+                            db.SaveChanges();
+                        }
+                        catch (DbUpdateConcurrencyException)
+                        {
+                            if (!ProductExists(id))
+                            {
+                                return Request.CreateResponse(HttpStatusCode.BadRequest);
+                            }
+                            else
+                            {
+                                throw;
+                            }
+                        }
+
+                    }
+                }
+                result = Request.CreateResponse(HttpStatusCode.NoContent);
+            }
+            else
+            {
+                result = Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            return result;
+        }
+
+        private bool ProductExists(int id)
+        {
+            return db.Products.Count(e => e.PID == id) > 0;
+        }
     }
+
 
 
 }

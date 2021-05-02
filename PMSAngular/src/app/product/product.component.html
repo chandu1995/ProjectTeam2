@@ -2,40 +2,60 @@
   <div class="row">
     <div class="col s8 offset-2">
       <div class="card-panel teal lighten-2">
-        <h4 class="center white-text">Image Library</h4>
+        <h4 class="center white-text">Product Detais</h4>
       </div>
-      <form #imageForm=ngForm (ngSubmit)="OnSubmit(PName,ImageName,Image,Price,Discount,Quantity,IsStock)">
+      <form #imageForm=ngForm (ngSubmit)="OnSubmit(PID,PName,ImageName,Image,Price,Discount,Quantity,IsStock)">
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" #PName ngModel name="PName" id="PName" required>
+            <input type="text" placeholder="" [(ngModel)]='PID' disabled  name="PID" id="PID" required>
+            <label for="PID" >ProductId</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="text" placeholder="" [(ngModel)]='PName' name="PName" id="PName" required>
             <label for="PName">ProductName</label>
           </div>
           <div class="input-field col s12">
-            <input type="text" #ImageName ngModel name="ImageName" id="ImageName" required>
+            <input type="text" placeholder="" [(ngModel)]='ImageName' name="ImageName" id="ImageName" required>
             <label for="ImageName">ImageName</label>
           </div>
 
           <div class="input-field col s12">
-            <input type="text" #Price ngModel name="Price" id="Price" required>
+            <input type="text" placeholder="" [(ngModel)]='Price' name="Price" id="Price" required>
             <label for="Price">Price</label>
           </div>
           <div class="input-field col s12">
-            <input type="text" #Discount ngModel name="Discount" id="Discount" required>
+            <input type="text" placeholder="" [(ngModel)]='Discount' name="Discount" id="Discount" required>
             <label for="Discount">Discount</label>
           </div>
           <div class="input-field col s12">
-            <input type="text" #Quantity ngModel name="Quantity" id="Quantity" required>
+            <input type="text" placeholder="" [(ngModel)]='Quantity' name="Quantity" id="Quantity" required>
             <label for="Quantity">Quantity</label>
           </div>
           <div class="input-field col s12">
-            <input type="text" #IsStock ngModel name="IsStock" id="IsStock" required>
-            <label for="IsStock">IsStock</label>
+            <label>
+              <input [(ngModel)]='IsStock' type="checkbox" class="blue-grey lighten-5" name="IsStock" id="IsStock" required/>
+              <span>IsStock</span>
+            </label>
           </div>
         </div>
         <img [src]="imageUrl"  style="width:250px;height:200px">
+
         <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
         <button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
       </form>
     </div>
   </div>
+
+
+        <div class="col-md-12">
+
+            <div *ngIf=retrievedImage>
+
+                <img [src]="retrievedImage" alt="shiva">
+
+            </div>
+
+        </div>
+
 </div>
+
