@@ -50,8 +50,8 @@ namespace PMS_WebAPI.Controllers
         public Product GetProduct(int id)
         {
             Product product = (from p in db.Products
-                                        where p.PID == id
-                                        select p).FirstOrDefault();
+                               where p.PID == id
+                               select p).FirstOrDefault();
             Product product1 = new Product()
             {
                 PID = product.PID,
@@ -130,7 +130,7 @@ namespace PMS_WebAPI.Controllers
             Product product = new Product();
             HttpResponseMessage result = null;
             var httpRequest = HttpContext.Current.Request;
-            product.PID= id;
+            product.PID = id;
             product.PName = httpRequest["PName"];
             product.Discount = Convert.ToInt32(httpRequest["Discount"]);
             product.Price = Convert.ToInt32(httpRequest["Price"]);
@@ -162,7 +162,7 @@ namespace PMS_WebAPI.Controllers
 
                         product.ImageName = fileName;
                         product.ImageCode = bytes;
-                        
+
                         db.Entry(product).State = EntityState.Modified;
                         try
                         {
@@ -195,8 +195,125 @@ namespace PMS_WebAPI.Controllers
         {
             return db.Products.Count(e => e.PID == id) > 0;
         }
+        [Route("api/DeleteProduct")]
+        // [AcceptVerbs("Get")]
+        public void DeleteProduct(int id)
+        {
+            Product product = (from p in db.Products
+                               where p.PID == id
+                               select p).FirstOrDefault();
+            if (product == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                db.Products.Remove(product);
+            }
+        }
+        [HttpPost]
+        [Route("api/AddOrder")]
+        public HttpResponseMessage AddOrder()
+        {
+            Order order = new Order();
+            HttpResponseMessage result = null;
+            var httpRequest = HttpContext.Current.Request;
+            // order.OrderId = Convert.ToInt32(httpRequest["OrderId"]);
+            order.ProductId = Convert.ToInt32(httpRequest["ProductId"]);
+            order.ProductQuantity = Convert.ToInt32(httpRequest["ProductQuantity"]);
+            order.UserId = Convert.ToInt32(httpRequest["UserId"]);
+            order.BookingOn = Convert.ToDateTime(httpRequest["BookingOn"]);
+            order.DeliveredOn = Convert.ToDateTime(httpRequest["DeliveredOn"]);
+            db.Orders.Add(order);
+            db.SaveChanges();
+            var max = db.Orders.OrderByDescending(p => p.OrderId).FirstOrDefault().OrderId;
+            result = Request.CreateResponse(HttpStatusCode.Created);
+
+            // return max;
+            return result;
+        }
+
+        [HttpGet]
+        [Route("api/GetOrder")]
+        [AcceptVerbs("GET")]
+        public IEnumerable<Order> GetOrder()
+        {
+            IList<Order> orders = db.Orders.ToList<Order>();
+            List<Order> orders1 = new List<Order>();
+            using (var context = new PMSEntities())
+            {
+                var query = from st in context.Orders
+                            select st;
+
+            }
+            foreach (var p in orders)
+            {
+                Order List = new Order()
+                {
+                    OrderId = p.OrderId,
+                    ProductId = p.ProductId,
+                    ProductQuantity = p.ProductQuantity,
+                    UserId = p.UserId,
+                    BookingOn = p.BookingOn,
+                    DeliveredOn = p.DeliveredOn,
+
+                };
+
+                orders1.Add(List);
+            }
+            return orders1;
+        }
+
+        [HttpGet]
+        [Route("api/GetOrder/{id}")]
+        public Order GetOrder(int id)
+        {
+            Order order = (from p in db.Orders
+                           where p.OrderId == id
+                           select p).FirstOrDefault();
+            Order orders1 = new Order()
+            {
+                OrderId = order.OrderId,
+                ProductId = order.ProductId,
+                ProductQuantity = order.ProductQuantity,
+                UserId = order.UserId,
+                BookingOn = order.BookingOn,
+                DeliveredOn = order.DeliveredOn,
+            };
+            //byte[] imgData = product.ImageCode;
+            //MemoryStream ms = new MemoryStream(imgData);
+            //HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
+            //response.Content = new StreamContent(ms);
+            //response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpg");
+            return orders1;
+        }
+
+        [HttpPost]
+        [Route("api/AddPayment")]
+        public HttpResponseMessage AddPayment()
+        {
+            Payment payments = new Payment();
+            HttpResponseMessage result = null;
+            var httpRequest = HttpContext.Current.Request;
+
+            payments.OrderId = Convert.ToInt32(httpRequest["OrderId"]);
+            payments.UserId = Convert.ToInt32(httpRequest["UserId"]);
+            payments.CardNo = Convert.ToString(httpRequest["CardNo"]);
+            payments.BankName = Convert.ToString(httpRequest["BankName"]);
+            payments.NameOnCard = Convert.ToString(httpRequest["NameOnCard"]);
+            payments.ExpiryDate = Convert.ToDateTime(httpRequest["ExpiryDate"]);
+            db.Payments.Add(payments);
+            db.SaveChanges();
+            // var max = db.Orders.OrderByDescending(p => p.OrderId).FirstOrDefault().OrderId;
+            result = Request.CreateResponse(HttpStatusCode.Created);
+
+            // return max;
+            return result;
+        }
+
+
+
+
+
     }
-
-
-
 }
