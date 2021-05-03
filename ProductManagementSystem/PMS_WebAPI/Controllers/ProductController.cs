@@ -311,20 +311,61 @@ namespace PMS_WebAPI.Controllers
             return orders1;
         }
 
+        //Chandu
+        [HttpGet]
+        [Route("api/GetPaymentDetails")]
+        [AcceptVerbs("GET")]
+        public IEnumerable<Payment> GetPaymentDetails()
+        {
+            IList<Payment> payments = db.Payments.ToList<Payment>();
+            List<Payment> payments1 = new List<Payment>();
+            using (var context = new PMSEntities())
+            {
+                var query = from st in context.Payments
+                            select st;
+
+            }
+            foreach (var p in payments)
+            {
+                Payment List = new Payment()
+                {
+                    PayId = p.PayId,
+                    OrderId = p.OrderId,
+                    UserId = p.UserId,
+                    BankName = p.BankName,
+                    CardNo = p.CardNo,
+                    NameOnCard = p.NameOnCard,
+                    ExpiryDate = p.ExpiryDate
+
+                };
+
+                payments1.Add(List);
+            }
+            return payments1;
+        }
+
         [HttpGet]
         [Route("api/GetPaymentDetails/{id}")]
 
         public Payment GetPaymentDetails(int id)
         {
             Payment payment = (from p in db.Payments where p.PayId == id select p).FirstOrDefault();
-            Payment payment1=new Payment()
+            Payment payment1 = new Payment()
             {
-                PayId=payment.PayId,
+                PayId = payment.PayId,
+                OrderId = payment.OrderId,
+                UserId = payment.UserId,
+                CardNo = payment.CardNo,
+                BankName = payment.BankName,
+                NameOnCard = payment.NameOnCard,
+                ExpiryDate = payment.ExpiryDate
+            };
+            return payment1;
 
-            }
 
-            
         }
+
+
 
         [HttpPost]
         [Route("api/AddPayment")]
@@ -348,6 +389,8 @@ namespace PMS_WebAPI.Controllers
             // return max;
             return result;
         }
+
+
     }
 
 
