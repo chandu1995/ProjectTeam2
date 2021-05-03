@@ -195,6 +195,29 @@ namespace PMS_WebAPI.Controllers
         {
             return db.Products.Count(e => e.PID == id) > 0;
         }
+        [HttpPost]
+        [Route("api/AddToCart")]
+        public void AddToCart(Cart cart)
+        {
+            db.Carts.Add(cart);
+            db.SaveChanges();
+        }
+        [HttpDelete]
+        [Route("api/DeleteCart")]
+        public void DeleteCart(int cartId)
+        {
+            Cart cart = (from c in db.Carts
+                         where c.CartId == cartId
+                         select c).FirstOrDefault();
+            if(cart == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                db.Carts.Remove(cart);
+            }
+        }
     }
 
 
