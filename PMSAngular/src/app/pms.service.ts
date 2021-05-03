@@ -5,9 +5,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PmsService {
+
   endpoint = 'https://localhost:44335/api/';
 
   constructor(private http : HttpClient) { }
+
+  getProducts() {
+    return this.http.get(this.endpoint+'/GetProducts');
+  }
 
   getProduct(PID: number) {
     return this.http.get(this.endpoint+'/GetProduct/'+PID);
