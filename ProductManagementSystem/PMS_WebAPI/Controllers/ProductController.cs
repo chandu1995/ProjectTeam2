@@ -311,6 +311,21 @@ namespace PMS_WebAPI.Controllers
             return orders1;
         }
 
+        [HttpGet]
+        [Route("api/GetPaymentDetails/{id}")]
+
+        public Payment GetPaymentDetails(int id)
+        {
+            Payment payment = (from p in db.Payments where p.PayId == id select p).FirstOrDefault();
+            Payment payment1=new Payment()
+            {
+                PayId=payment.PayId,
+
+            }
+
+            
+        }
+
         [HttpPost]
         [Route("api/AddPayment")]
         public HttpResponseMessage AddPayment()
