@@ -5,9 +5,9 @@
         <h4 class="center white-text">Product Detais</h4>
       </div>
       <form #imageForm=ngForm (ngSubmit)="OnSubmit(PID,PName,ImageName,Image,Price,Discount,Quantity,IsStock)">
-        <div class="row">
+        <div class="row" *ngIf="check">
           <div class="input-field col s12">
-            <input type="text" placeholder="" [(ngModel)]='PID' disabled  name="PID" id="PID" required>
+            <input type="text" placeholder="" [(ngModel)]='PID' disabled  name="PID" id="PID" >
             <label for="PID" >ProductId</label>
           </div>
           <div class="input-field col s12">
@@ -38,6 +38,7 @@
             </label>
           </div>
         </div>
+                                
         <img [src]="imageUrl"  style="width:250px;height:200px">
 
         <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">

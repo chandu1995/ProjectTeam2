@@ -20,10 +20,28 @@ export class ProductsComponent implements OnInit {
   retrieveResonse: any;
   p:any = new Product();
 
+<<<<<<< Updated upstream
+=======
+  check:any=true;
+>>>>>>> Stashed changes
 
   constructor(private productService : PmsService) {
 
   }
+<<<<<<< Updated upstream
+=======
+
+  display:any;
+  onPress(x:number) {
+    this.display = x;
+    if(x==1)
+    this.check=true;
+    else
+    this.check=false;
+
+  }
+
+>>>>>>> Stashed changes
   ngOnInit(): void {
 
     this.getProducts();

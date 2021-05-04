@@ -14,8 +14,13 @@ export class PmsService {
     return this.http.get(this.endpoint+'/GetProducts');
   }
 
+<<<<<<< Updated upstream
   getProduct(PID: number) {
     return this.http.get(this.endpoint+'/GetProduct/'+PID);
+=======
+  getProduct(PName: any) {
+    return this.http.get(this.endpoint+'/GetProduct/'+PName);
+>>>>>>> Stashed changes
   }
 
   postProduct(PName: string, ImageName: string, fileToUpload: File,Price: string, Discount: string,Quantity: string, IsStock: string) {

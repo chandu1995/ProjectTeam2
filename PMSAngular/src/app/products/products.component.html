@@ -30,6 +30,7 @@
 
     <div class="container">
       <div class="row">
+<<<<<<< Updated upstream
 
         <div class="col-md" *ngFor="let fruit of p">
           <!-- Note that "m8 l9" was added -->
@@ -41,6 +42,27 @@
               <h5 class="card-title">{{fruit.PName}}
                 </h5>
               <p class="card-text">₹{{fruit.Price}}</p>
+=======
+        <div id="comp-render" [ngSwitch]="display">
+          <span *ngSwitchCase=1><app-product [item]='1' *ngIf!="check"></app-product></span>
+          <span *ngSwitchCase=2><app-product [item]='2'></app-product></span>
+          <span *ngSwitchCase=3><app-product [item]='3'></app-product></span>
+          <span *ngSwitchCase=4><app-product [item]='4'></app-product></span>
+        </div>
+      </div>
+      <div class="row" *ngIf="check">
+
+        <div class="col-md" *ngFor="let product of p">
+          <!-- Note that "m8 l9" was added -->
+          <div class="card" style="width: 18rem;">
+
+            <img [src]="'data:image/jpeg;base64,'+product.ImageCode"  class="img-fluid card-img-top">
+
+            <div class="card-body">
+              <h5 class="card-title">{{product.PName}}
+                </h5>
+              <p class="card-text">₹{{product.Price}}</p>
+>>>>>>> Stashed changes
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
@@ -62,6 +84,7 @@
             <i class="fas fa-arrow-left"></i>
         </div>
         <div class="sidebar-header">
+<<<<<<< Updated upstream
             <h3>Angular 11</h3>
         </div>
         <ul class="list-unstyled components">
@@ -100,13 +123,29 @@
             </li>
             <li>
                 <a href="#">Contact</a>
+=======
+            <h3>Mobiles</h3>
+        </div>
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="#" data-toggle="collapse" aria-expanded="false">Admin</a>
+                    <a href="#" (click)="onPress(1)">All Products</a>
+                    <a href="#" (click)="onPress(2)">Search Products</a>
+                    <a href="#" (click)="onPress(3)">Add Products</a>
+                    <a href="#" (click)="onPress(4)">Update Products</a>
+
+>>>>>>> Stashed changes
             </li>
         </ul>
 
     </nav>
     <!-- Page Content  -->
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
   </div>
   <div class="overlay"></div>

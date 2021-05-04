@@ -45,3 +45,30 @@ E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CoreCompileInp
 E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
 E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
 E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
+<<<<<<< Updated upstream
+=======
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll.config
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.pdb
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.dll
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.xml
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csprojAssemblyReference.cache
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CoreCompileInputs.cache
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
+C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
+E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll.config
+E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll
+E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.pdb
+E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.dll
+E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.xml
+E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csprojAssemblyReference.cache
+E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CoreCompileInputs.cache
+E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
+E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
+E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
+>>>>>>> Stashed changes
