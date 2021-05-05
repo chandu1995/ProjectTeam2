@@ -43,4 +43,15 @@ export class PmsService {
     console.log('service code')
     return this.http.put(this.endpoint+'UpdateProduct/'+PID, formData);
   }
+
+  getPaymentdetails(UserId){
+
+    return this.http.get(this.endpoint+'/GetPaymentDetails/'+UserId);
+  }
+
+  gettrackorder(){
+
+    return this.http.get(this.endpoint+'/GetPlacedOrders');
+  }
+  
 }
