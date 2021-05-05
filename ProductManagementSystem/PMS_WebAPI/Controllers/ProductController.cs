@@ -190,9 +190,12 @@ namespace PMS_WebAPI.Controllers
         {
             return db.Products.Count(e => e.PID == id) > 0;
         }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
+=======
+>>>>>>> main
         [HttpPost]
         [Route("api/AddToCart")]
         public void AddToCart(Cart cart)
@@ -200,7 +203,10 @@ namespace PMS_WebAPI.Controllers
             db.Carts.Add(cart);
             db.SaveChanges();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
         [HttpDelete]
         [Route("api/DeleteCart")]
         public void DeleteCart(int cartId)
@@ -217,8 +223,13 @@ namespace PMS_WebAPI.Controllers
                 db.Carts.Remove(cart);
             }
         }
+<<<<<<< HEAD
         
         [Route("api/DeleteProduct")]
+=======
+        [Route("api/DeleteProduct")]
+        // [AcceptVerbs("Get")]
+>>>>>>> main
         public void DeleteProduct(int id)
         {
             Product product = (from p in db.Products
@@ -233,7 +244,10 @@ namespace PMS_WebAPI.Controllers
                 db.Products.Remove(product);
             }
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> main
         [HttpPost]
         [Route("api/AddOrder")]
         public HttpResponseMessage AddOrder()
@@ -311,6 +325,65 @@ namespace PMS_WebAPI.Controllers
             return orders1;
         }
 
+<<<<<<< HEAD
+=======
+        //Chandu
+        [HttpGet]
+        [Route("api/GetPaymentDetails")]
+        [AcceptVerbs("GET")]
+        public IEnumerable<Payment> GetPaymentDetails()
+        {
+            IList<Payment> payments = db.Payments.ToList<Payment>();
+            List<Payment> payments1 = new List<Payment>();
+            using (var context = new PMSEntities())
+            {
+                var query = from st in context.Payments
+                            select st;
+
+            }
+            foreach (var p in payments)
+            {
+                Payment List = new Payment()
+                {
+                    PayId = p.PayId,
+                    OrderId = p.OrderId,
+                    UserId = p.UserId,
+                    BankName = p.BankName,
+                    CardNo = p.CardNo,
+                    NameOnCard = p.NameOnCard,
+                    ExpiryDate = p.ExpiryDate
+
+                };
+
+                payments1.Add(List);
+            }
+            return payments1;
+        }
+
+        [HttpGet]
+        [Route("api/GetPaymentDetails/{id}")]
+
+        public Payment GetPaymentDetails(int id)
+        {
+            Payment payment = (from p in db.Payments where p.PayId == id select p).FirstOrDefault();
+            Payment payment1 = new Payment()
+            {
+                PayId = payment.PayId,
+                OrderId = payment.OrderId,
+                UserId = payment.UserId,
+                CardNo = payment.CardNo,
+                BankName = payment.BankName,
+                NameOnCard = payment.NameOnCard,
+                ExpiryDate = payment.ExpiryDate
+            };
+            return payment1;
+
+
+        }
+
+
+
+>>>>>>> main
         [HttpPost]
         [Route("api/AddPayment")]
         public HttpResponseMessage AddPayment()
@@ -333,7 +406,12 @@ namespace PMS_WebAPI.Controllers
             // return max;
             return result;
         }
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+
+
+>>>>>>> main
     }
 
 

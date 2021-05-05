@@ -14,13 +14,11 @@ export class PmsService {
     return this.http.get(this.endpoint+'/GetProducts');
   }
 
-<<<<<<< Updated upstream
   getProduct(PID: number) {
     return this.http.get(this.endpoint+'/GetProduct/'+PID);
-=======
+  }
   getProduct(PName: any) {
     return this.http.get(this.endpoint+'/GetProduct/'+PName);
->>>>>>> Stashed changes
   }
 
   postProduct(PName: string, ImageName: string, fileToUpload: File,Price: string, Discount: string,Quantity: string, IsStock: string) {
@@ -53,4 +51,15 @@ export class PmsService {
     console.log('service code')
     return this.http.put(this.endpoint+'UpdateProduct/'+PID, formData);
   }
+
+  getPaymentdetails(UserId){
+
+    return this.http.get(this.endpoint+'/GetPaymentDetails/'+UserId);
+  }
+
+  gettrackorder(){
+
+    return this.http.get(this.endpoint+'/GetPlacedOrders');
+  }
+  
 }

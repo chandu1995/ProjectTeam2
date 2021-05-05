@@ -1,0 +1,24 @@
+<div class="container py-5">
+    <h3 class="text-center text-uppercase">Payment Details</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+    <tr>
+        <th>Payment ID</th>
+        <th>Order ID</th>
+        <th>UserId</th>
+        <th>Bank Name</th>
+        <th>Card Number</th>
+        <th>Name On Card</th>
+        <th>Expiry Date</th>
+    </tr>
+    </thead>
+  
+    <tbody>
+    <tr *ngFor="let Payment of p">
+    <td>{{Payment.PayId}}</td> <td>{{Payment.OrderId}}</td> <td>{{Payment.UserId}}</td><td>{{Payment.BankName}}</td>
+    <td>{{Payment.CardNo}}</td><td>{{Payment.NameOnCard}}</td><td>{{Payment.ExpiryDate}}</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  

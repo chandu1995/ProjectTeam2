@@ -1,0 +1,23 @@
+<div class="container py-5">
+    <h3 class="text-center text-uppercase">Track order details</h3>
+  <table border="1" id="table1">
+    <thead>
+    <tr>
+  
+        <th>Order ID</th>
+        <th>ProductId</th>
+        <th>ProductQuantity</th>
+        <th>UserId</th>
+  
+  
+    </tr>
+    </thead>
+  
+  
+    <tr *ngFor="let Orderdetails  of p">
+    <td>{{Orderdetails.OrderId}}</td> <td>{{Orderdetails.ProductId}}</td> <td>{{Orderdetails.ProductQuantity}}</td><td>{{Orderdetails.UserId}}</td>
+  
+    </tr>
+  </table>
+  </div>
+  

@@ -45,8 +45,11 @@ E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CoreCompileInp
 E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
 E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
 E:\Clone\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> main
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll.config
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.pdb
@@ -59,6 +62,7 @@ C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
+<<<<<<< HEAD
 E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll.config
 E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.dll
 E:\1\ProductManagementSystem\PMS_DAL\bin\Debug\PMS_DAL.pdb
@@ -72,3 +76,5 @@ E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.csproj.CopyComplete
 E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.dll
 E:\1\ProductManagementSystem\PMS_DAL\obj\Debug\PMS_DAL.pdb
 >>>>>>> Stashed changes
+=======
+>>>>>>> main

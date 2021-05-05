@@ -475,8 +475,11 @@ E:\Clone\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.csproj.CoreComp
 E:\Clone\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.csproj.CopyComplete
 E:\Clone\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.dll
 E:\Clone\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.pdb
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> main
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\bin\PMS_WebAPI.dll.config
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\bin\PMS_WebAPI.dll
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\bin\PMS_WebAPI.pdb
@@ -599,6 +602,7 @@ C:\Project\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.csproj.CopyComplete
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.dll
 C:\Project\ProjectTeam2\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.pdb
+<<<<<<< HEAD
 E:\1\ProductManagementSystem\PMS_WebAPI\bin\PMS_WebAPI.dll.config
 E:\1\ProductManagementSystem\PMS_WebAPI\bin\PMS_WebAPI.dll
 E:\1\ProductManagementSystem\PMS_WebAPI\bin\PMS_WebAPI.pdb
@@ -722,3 +726,5 @@ E:\1\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.csproj.CopyComplete
 E:\1\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.dll
 E:\1\ProductManagementSystem\PMS_WebAPI\obj\Debug\PMS_WebAPI.pdb
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
